@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+ <html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#6f111b" />
+  <title>For u with love ♡</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --wine: #6f111b;
+      --wine-dark: #3e0810;
+      --red: #a91f2b;
+      --cream: #fff7e9;
+      --paper: #fffaf0;
+      --pink: #f6d7d2;
+      --ink: #42151a;
+      --muted: #8c5b5b;
+      --line: #e7b8b0;
+      --shadow: 0 18px 55px rgba(42, 4, 10, .25);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--wine-dark);
+      font-family: "DM Sans", sans-serif;
+      overflow-x: hidden;
+    }
+    button { font: inherit; cursor: pointer; }
+    .page {
+      min-height: 100vh;
+      padding: 24px 16px 54px;
+      background:
+        radial-gradient(ellipse at 50% 5%, rgba(173, 35, 48, .55), transparent 42%),
+        var(--wine-dark);
+    }
+    .top-note {
+      text-align: center;
+      color: #ffe8d8;
+      font-size: 11px;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      margin: 0 auto 18px;
+    }
+    .site-shell { width: min(100%, 760px); margin: 0 auto; }
+    .hero {
+      position: relative;
+      padding: clamp(28px, 6vw, 58px) 20px 30px;
+      border: 1px solid rgba(255, 232, 216, .3);
+      background: var(--wine);
+      color: var(--cream);
+      text-align: center;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .hero:before, .hero:after {
+      content: "✿  ♡  ✿  ♡  ✿";
+      position: absolute; color: #e7a9a3; opacity: .8;
+      font-size: 15px; letter-spacing: 9px; white-space: nowrap;
+    }
+    .hero:before { top: 14px; left: 16px; }
+    .hero:after { bottom: 12px; right: 16px; }
+    .eyebrow { font-size: 10px; letter-spacing: .27em; text-transform: uppercase; color: #f3c8bd; }
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(39px, 8vw, 68px);
+      line-height: 1.03;
+      font-weight: 600;
+      margin: 18px 0 12px;
+    }
+    h1 em { color: #f6c5bf; font-weight: 500; }
+    .hero p { max-width: 430px; margin: 0 auto; line-height: 1.7; color: #ffe7da; font-size: 14px; }
+    .scribble { font-family: "Caveat", cursive; font-size: 24px; color: #f6c5bf; margin-top: 15px; transform: rotate(-3deg); }
+    .paper {
+      margin: 18px 0;
+      padding: clamp(22px, 5vw, 40px);
+      position: relative;
+      background:
+        linear-gradient(rgba(255,250,240,.95), rgba(255,250,240,.95)),
+        repeating-linear-gradient(0deg, transparent 0 23px, #efded2 24px 25px);
+      border: 7px solid transparent;
+      border-image: repeating-linear-gradient(45deg, #7c1821 0 8px, #f6d8cf 8px 16px) 7;
+      box-shadow: var(--shadow);
+    }
+    .section-label { color: var(--red); text-transform: uppercase; font-size: 10px; letter-spacing: .22em; font-weight: 700; }
+    h2 { font: 600 clamp(26px, 5vw, 38px)/1.15 "Playfair Display", serif; margin: 9px 0 12px; }
+    .intro-copy { line-height: 1.75; color: #765052; max-width: 520px; font-size: 14px; }
+    .center { text-align: center; }
+    .sticker {
+      display: inline-grid; place-items: center; width: 72px; height: 72px;
+      border-radius: 50%; background: #f4d6d0; color: var(--wine);
+      font-size: 30px; transform: rotate(-9deg); border: 1px dashed #b45b60;
+      margin: 18px 0 10px;
+    }
+    .btn {
+      border: 0; border-radius: 3px; padding: 13px 20px; font-weight: 700;
+      transition: transform .2s, box-shadow .2s, background .2s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(80,10,20,.16); }
+    .btn-primary { background: var(--wine); color: #fff6e9; }
+    .btn-secondary { background: #f4d6d0; color: var(--wine); border: 1px solid #d99b98; }
+    .btn-row { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
+    .hidden { display: none !important; }
+    .gift-area { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    .gift-card {
+      min-height: 220px; border: 1px solid #e4b9b0; background: #fff3e7;
+      padding: 24px; text-align: center; position: relative; overflow: hidden;
+    }
+    .gift-card:after { content: "♡"; position: absolute; font-size: 100px; color: #f4d6d0; right: -5px; bottom: -45px; transform: rotate(-15deg); }
+    .gift-icon { font-size: 45px; display: block; margin: 8px 0 12px; position: relative; z-index: 1; }
+    .gift-card h3 { font: 600 23px "Playfair Display", serif; margin: 0 0 8px; position: relative; z-index: 1; }
+    .gift-card p { font-size: 13px; color: #80575a; line-height: 1.65; position: relative; z-index: 1; }
+    .letter {
+      max-width: 570px; margin: 20px auto 0; padding: 24px;
+      background: #fff4e5; border: 1px solid #e4b9b0; transform: rotate(-.5deg);
+      box-shadow: 4px 7px 0 #f0d5c7; text-align: left;
+    }
+    .letter .hand { font: 600 28px "Caveat", cursive; color: var(--red); }
+    .letter p { line-height: 1.85; font-size: 14px; color: #68474a; white-space: pre-line; }
+    .signature { font: 600 25px "Caveat", cursive; text-align: right; color: var(--red); margin-top: 16px; }
+    .memory-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; margin-top: 18px; }
+    .memory {
+      aspect-ratio: 4 / 4.7; padding: 10px 10px 26px; background: #fffdf7;
+      box-shadow: 0 5px 14px rgba(70, 10, 15, .12); transform: rotate(-1.5deg);
+      border: 1px solid #ead9cd; display: flex; flex-direction: column;
+    }
+    .memory:nth-child(2n) { transform: rotate(1.7deg); }
+    .memory-art {
+      flex: 1; display: grid; place-items: center; background: #f2d6d0;
+      color: #8e2730; font-size: 42px; overflow: hidden; position: relative;
+    }
+    .memory-art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .memory-caption { font: 600 19px "Caveat", cursive; text-align: center; padding-top: 8px; color: #71313a; }
+    .upload-row { margin-top: 15px; text-align: center; }
+    input[type=file] { display: none; }
+    .upload-label { display: inline-block; font-size: 12px; color: var(--red); text-decoration: underline; cursor: pointer; }
+    
+.music-player {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 320px;
+  padding: 14px 18px;
+  margin: 20px auto;
+  border: 1px solid #eadde4;
+  border-radius: 18px;
+  background: #fff9fb;
+  color: #594653;
+}
+
+.music-note {
+  font-size: 28px;
+  color: #c58ba6;
+}
+
+.music-info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.music-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.music-subtitle {
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+.music-btn {
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background: #e9c9d8;
+  color: #594653;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.music-btn:hover {
+  background: #dfb5c9;
+}
+
+    .footer { color: #f4c9c0; text-align: center; font: 22px "Caveat", cursive; padding: 24px 0 4px; }
+    .tiny { font-size: 11px; color: #9b6b6b; margin-top: 13px; }
+    .confetti { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 10; }
+    .confetti span { position: absolute; top: -20px; animation: fall 3.2s linear forwards; font-size: 20px; }
+    @keyframes fall { to { transform: translateY(110vh) rotate(500deg); opacity: .15; } }
+    @media (min-width: 620px) {
+      .gift-area { grid-template-columns: 1fr 1fr; }
+      .memory-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+      .page { padding-top: 36px; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *:before, *:after { scroll-behavior: auto !important; animation: none !important; transition: none !important; } }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="top-note">a little website made with love ♡</div>
+    <div class="site-shell">
+      <header class="hero">
+        <div class="eyebrow">open when you're ready</div>
+        <h1>Happy 19th,<br><em>love.</em></h1>
+        <p>A tiny corner of the internet, made just for you</p>
+        <div class="scribble">♡</div>
+      </header>
+
+      <section class="paper center" id="welcome">
+        <div class="section-label">your birthday surprise</div>
+        <div class="sticker">♡</div>
+        <h2>Hey Handsome</h2>
+        <p class="intro-copy" style="margin-left:auto;margin-right:auto"> are you ready for your little surprise?</p>
+        <div class="btn-row">
+          <button class="btn btn-primary" id="openBtn">I'm ready! ♡</button>
+          <button class="btn btn-secondary" id="teaseBtn">Not yet 🙈</button>
+        </div>
+        <p id="teaseText" class="tiny hidden">Too bad, love. Your surprise is waiting for you ♡</p>
+      </section>
+
+      <section class="paper hidden" id="surprise">
+     
+        <h2>well, look who's 19</h2>
+        <p class="intro-copy">happy birthdayyy <3 ik birthdays aren't really your thing but i hope you have a nice day anyway. hope 19 treats you well. love youu ❤️</p>
+        <div class="gift-area">
+          <article class="gift-card">
+            <span class="gift-icon">🎁</span>
+            <h3>a little something</h3>
+            <p>A little reminder that you are loved more than you know. Tap below to unwrap it.</p>
+            <button class="btn btn-primary" id="giftBtn">before u go</button>
+            <p id="giftReveal" class="hidden"><strong>Surprise!</strong> Your gift is unlimited hugs, kisses, and me cheering for you — always. 💌</p>
+          </article>
+          <article class="gift-card">
+            <span class="gift-icon">💌</span>
+            <h3>A letter for you</h3>
+            <p>wrote a few things i wanted to tell you</p>
+            <button class="btn btn-secondary" id="letterBtn">Read my letter</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="paper hidden" id="letterSection">
+        <div class="section-label">chapter two · things i mean</div>
+        <h2>A little love letter</h2>
+        <div class="letter">
+          
+          <p id="letterText">**Happy birthday, to my favorite person. ♡**
+
+Well, look who’s turning 19. 😭
+
+I’m really glad I have you in my life. You’re genuinely one of my favorite people to yap with, laugh at the most random things with, and share all my nonsense with.
+
+I hope 19 brings you a lot of good things, new experiences, random little wins, and reasons to be proud of yourself. Keep being your weird, funny, slightly annoying self (unfortunately, I like you that way).
+
+I love having you around, even if we somehow manage to fight over the most random things ever. We argue, we get on each other’s nerves, and sometimes neither of us wants to admit we’re wrong 😭 but at the end of the day, we always find our way back to each other. And honestly, that’s one of my favorite things about us. No matter how much we fight, we still have each other’s backs.
+
+Jokes aside, I hope you know I’m always rooting for you, even when you’re busy roasting me for absolutely no reason. I hope this year treats you well and gives you plenty of reasons to be happy.
+
+Thank you for being my person, my favorite weirdo, and my boyfriend all at once. Honestly, having you around just makes things better.
+
+Have the best birthday, Bhonduu. You deserve a good one. Now go enjoy being 19, oldie. 🫵🏻🎂♡</p>
+          <div class="signature">yours always,<br>V.♡</div>
+        </div>
+        <div class="btn-row"><button class="btn btn-primary" id="memoriesBtn">you, as i see you→</button></div>
+      </section>
+
+      <section class="paper hidden" id="memoriesSection">
+        <div class="section-label">chapter three · us</div>
+        <h2>the little things</h2>
+      
+<div class="memory-grid">
+  <div class="memory">
+    <div class="memory-art" id="art1">
+      <img src="img1.jpeg" alt="we look cute ngl">
+    </div>
+    <div class="memory-caption" contenteditable="true">we look cute ngl</div>
+  </div>
+
+  <div class="memory">
+    <div class="memory-art" id="art2">
+      <img src="img8.jpeg" alt="My daily distraction">
+    </div>
+    <div class="memory-caption" contenteditable="true">My daily distraction</div>
+  </div>
+
+  <div class="memory">
+    <div class="memory-art" id="art3">
+      <img src="img3.jpeg" alt="My cutu">
+    </div>
+    <div class="memory-caption" contenteditable="true">My cutu</div>
+  </div>
+
+  <div class="memory">
+    <div class="memory-art" id="art4">
+      <img src="img4.jpeg" alt="Pretty boy">
+    </div>
+    <div class="memory-caption" contenteditable="true">Pretty boy</div>
+  </div>
+
+  <div class="memory">
+    <div class="memory-art" id="art5">
+      <img src="img5.jpeg" alt="My safe place">
+    </div>
+    <div class="memory-caption" contenteditable="true">my safe place</div>
+  </div>
+
+  <div class="memory">
+    <div class="memory-art" id="art6">
+      <img src="img7.jpeg" alt="a day to remember">
+    </div>
+    <div class="memory-caption" contenteditable="true">a day to remember</div>
+  </div>
+</div>
+```
+        <div class="upload-row">
+       
+          <input id="photoUpload" type="file" accept="image/*" multiple />
+         
+        </div>
+        <div class="btn-row"><button class="btn btn-primary" id="finalBtn">One last thing… ♡</button></div>
+      </section>
+
+      <section class="paper hidden center" id="finalSection">
+        <div class="sticker">19 ✨</div>
+   
+        <h2>here's to whatever's next</h2
+        <p class="intro-copy" style="margin-left:auto;margin-right:auto">happy 19th cutuu❤️ ik birthdays aren't really ur thing but i hope today is still a lil special in its own way. hope 19 treats u well <33.</p>
+        <p style="font:600 28px 'Caveat',cursive;color:var(--red)">I love you. ♡</p>
+        <div class="music-player">
+  <span class="music-note">♫</span>
+
+  <div class="music-info">
+    <span class="music-title">♡</span>
+    <span class="music-subtitle">a song that remind me of you</span>
+  </div>
+
+  <button id="musicBtn" class="music-btn"
+          aria-label="Play song">▶</button>
+
+  <audio id="ourSong" src="nothing.mpeg" preload="none"></audio>
+      
+</div>
+        <button class="btn btn-primary" id="againBtn">Read it all again ↺</button>
+      </section>
+      
+
+
+      <footer class="footer"> For u with love ♡</footer>
+    </div>
+  </main>
+  <div class="confetti" id="confetti"></div>
+
+  <script>
+    const $ = (id) => document.getElementById(id);
+    function show(id) {
+      $(id).classList.remove('hidden');
+      setTimeout(() => $(id).scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
+    }
+    function confetti() {
+      const holder = $('confetti');
+      const symbols = ['♡', '♥', '✦', '✿', '💕'];
+      for (let i = 0; i < 35; i++) {
+        const piece = document.createElement('span');
+        piece.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        piece.style.left = Math.random() * 100 + 'vw';
+        piece.style.animationDelay = Math.random() * 1.2 + 's';
+        piece.style.color = ['#f8c7bd', '#fff1dc', '#dc7b82', '#f3a7ad'][i % 4];
+        holder.appendChild(piece);
+        setTimeout(() => piece.remove(), 4300);
+      }
+    }
+    $('openBtn').addEventListener('click', () => { show('surprise'); confetti(); });
+    $('teaseBtn').addEventListener('click', () => $('teaseText').classList.remove('hidden'));
+    $('giftBtn').addEventListener('click', () => { $('giftReveal').classList.remove('hidden'); confetti(); });
+    $('letterBtn').addEventListener('click', () => show('letterSection'));
+    $('memoriesBtn').addEventListener('click', () => show('memoriesSection'));
+    $('finalBtn').addEventListener('click', () => { show('finalSection'); confetti(); });
+    $('againBtn').addEventListener('click', () => {
+      ['surprise','letterSection','memoriesSection','finalSection'].forEach(id => $(id).classList.add('hidden'));
+      $('welcome').scrollIntoView({ behavior: 'smooth' });
+    });
+    $('photoUpload').addEventListener('change', (event) => {
+      const files = Array.from(event.target.files).slice(0, 6);
+      files.forEach((file, index) => {
+        if (!file.type.startsWith('image/')) return;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const target = $('art' + (index + 1));
+          target.innerHTML = '';
+          const img = document.createElement('img');
+          img.src = e.target.result;
+          img.alt = 'Your memory ' + (index + 1);
+          target.appendChild(img);
+        };
+        reader.readAsDataURL(file);
+      });
+    });
+    
+const song = document.getElementById("ourSong");
+const musicBtn = document.getElementById("musicBtn");
+
+musicBtn.addEventListener("click", () => {
+  if (song.paused) {
+    song.play().then(() => {
+      musicBtn.textContent = "Ⅱ";
+      musicBtn.setAttribute("aria-label", "Pause song");
+    }).catch(() => {
+      musicBtn.textContent = "▶";
+    });
+  } else {
+    song.pause();
+    musicBtn.textContent = "▶";
+    musicBtn.setAttribute("aria-label", "Play song");
+  }
+});
+
+song.addEventListener("ended", () => {
+  musicBtn.textContent = "▶";
+  musicBtn.setAttribute("aria-label", "Play song");
+});
+
+    
+  </script>
+</body>
+</html>
